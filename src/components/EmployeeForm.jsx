@@ -43,7 +43,7 @@ export default function EmployeeForm({
   };
 
   return (
-    <div className="my-6 max-w-[600px] px-4 mx-auto">
+    <div className="my-6 max-w-[600px] mx-auto">
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div>
           <label htmlFor="name" className="block text-xs font-bold text-gray-700">

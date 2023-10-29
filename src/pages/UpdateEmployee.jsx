@@ -29,7 +29,7 @@ export default function UpdateEmployee() {
   }, []);
 
   return (
-    <div className="my-4">
+    <div className="my-4 mx-8">
       <h1 className="text-center text-xl font-bold">Update Employee</h1>
 
       {employee ? (

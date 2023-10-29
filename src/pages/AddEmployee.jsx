@@ -18,7 +18,7 @@ export default function AddEmployee() {
   };
 
   return (
-    <div className="my-4">
+    <div className="my-4 mx-8">
       <h1 className="text-center text-xl font-bold">Add Employee</h1>
       <EmployeeForm onSubmit={handleSubmit} />
     </div>
