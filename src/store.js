@@ -100,3 +100,59 @@ export const employees = [
     id: "10",
   },
 ];
+
+const getLocalEmployees = () => {
+  try {
+    const employees = localStorage.getItem("employees");
+    return JSON.parse(employees);
+  } catch (err) {
+    return null;
+  }
+};
+
+const setLocalEmployees = (employees) => {
+  localStorage.setItem("employees", JSON.stringify(employees));
+};
+
+export const createEmployee = (employee) => {
+  const employees = getLocalEmployees();
+  if (employees) {
+    setLocalEmployees([...employees, employee]);
+  }
+};
+
+export const findEmployees = () => {
+  const employees = getLocalEmployees();
+  if (!employees) {
+    setLocalEmployees([]);
+    return [];
+  }
+  return employees;
+};
+
+export const findEmployeeById = (id) => {
+  const employees = getLocalEmployees();
+  if (employees) {
+    const employee = employees.find((e) => e.id === id);
+    return employee;
+  }
+
+  return null;
+};
+
+export const updateEmployeeById = (id, data) => {
+  const employees = getLocalEmployees();
+  if (employees) {
+    const index = employees.findIndex((e) => e.id === id);
+    employees[index] = { id: id, ...data };
+    setLocalEmployees(employees);
+  }
+};
+
+export const deleteEmployeeById = (id) => {
+  const employees = getLocalEmployees();
+  if (employees) {
+    const newEmployees = employees.filter((e) => e.id !== id);
+    setLocalEmployees(newEmployees);
+  }
+};
